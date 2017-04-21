@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="update_image">false</item>
+    <item type="id" name="pb_title">false</item>
+    <item type="id" name="image_pause">false</item>
+    <item type="id" name="pb_percent">false</item>
+    <item type="id" name="pb_download">false</item>
+    <item type="id" name="notify">false</item>
+    <item type="id" name="description">false</item>
+    <item type="id" name="button_cancel">false</item>
+    <item type="id" name="button_ok">false</item>
+    <item type="id" name="download_info_remaining">false</item>
+    <item type="id" name="download_info_rate">false</item>
+    <item type="id" name="progress_completed">false</item>
+    <item type="id" name="progress_horizontal">false</item>
+    <item type="id" name="btn_control">false</item>
+    <item type="id" name="RelativeLayout1">false</item>
+    <item type="id" name="imageView3">false</item>
+    <item type="id" name="textView1">false</item>
+    <item type="id" name="textView2">false</item>
+    <item type="id" name="imageView1">false</item>
+    <item type="id" name="txt_version">false</item>
+    <item type="id" name="txt_product">false</item>
+    <item type="id" name="textView5">false</item>
+    <item type="id" name="btn_check_now">false</item>
+    <item type="id" name="textView4">false</item>
+    <item type="id" name="linearLayout1">false</item>
+    <item type="id" name="imageView2">false</item>
+</resources>

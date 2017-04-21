@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--<ImageView android:id="@id/update_image" android:layout_width="-2" android:layout_height="-1" android:src="@drawable/ota_update" android:scaleType="5" android:contentDescription="@string/downloading" />
+    <LinearLayout android:orientation="1" android:layout_width="-1" android:layout_height="-2">
+        <TextView android:textSize="16dp" android:textColor="#ffffffff" android:id="@id/pb_title" android:layout_width="-1" android:layout_height="-2" android:text="@string/pb_title_downloading" android:singleLine="true" />
+        <LinearLayout android:gravity="11" android:orientation="0" android:layout_width="-1" android:layout_height="-2">
+            <ImageView android:id="@id/image_pause" android:visibility="2" android:layout_width="-2" android:layout_height="-2" android:src="@drawable/ota_pause" android:contentDescription="@string/stoping" />
+            <TextView android:id="@id/pb_percent" android:paddingLeft="2dp" android:paddingRight="2dp" android:layout_width="-2" android:layout_height="-2" />
+            <ProgressBar android:layout_gravity="10" android:id="@id/pb_download" android:layout_width="-1" android:layout_height="-2" style="?unknown_attr_ref: 1010078" />
+        </LinearLayout>
+    </LinearLayout>-->
+</LinearLayout>

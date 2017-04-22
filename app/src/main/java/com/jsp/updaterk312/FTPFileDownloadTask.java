@@ -1,6 +1,18 @@
 package com.jsp.updaterk312;
 
-
+//import android.os.Bundle;
+//import android.os.Handler;
+//import android.os.Message;
+//import android.rockchip.update.util.FTPOptType;
+//import android.rockchip.update.util.FTPRequestInfo;
+//import android.rockchip.update.util.FTPToolkit;
+//import android.rockchip.update.util.FileInfo;
+//import android.rockchip.update.util.RegetInfoUtil;
+//import android.util.Log;
+//import it.sauronsoftware.ftp4j.FTPClient;
+//import it.sauronsoftware.ftp4j.FTPDataTransferListener;
+//import java.io.File;
+//import java.net.URI;
 
 public class FTPFileDownloadTask extends Thread {
 //    private volatile int err;

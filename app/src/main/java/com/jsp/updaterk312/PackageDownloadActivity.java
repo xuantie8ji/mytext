@@ -1,36 +1,36 @@
 package com.jsp.updaterk312;
 
 import android.app.Activity;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.ActivityNotFoundException;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.content.pm.ActivityInfo;
-import android.content.pm.ResolveInfo;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.IBinder;
-import android.os.Message;
-import android.os.PowerManager;
-import android.os.PowerManager.WakeLock;
-//import android.rockchip.update.service.RKUpdateService.LocalBinder;
+//import android.app.Notification;
+//import android.app.NotificationManager;
+//import android.app.PendingIntent;
+//import android.content.ActivityNotFoundException;
+//import android.content.ComponentName;
+//import android.content.Context;
+//import android.content.Intent;
+//import android.content.ServiceConnection;
+//import android.content.pm.ActivityInfo;
+//import android.content.pm.ResolveInfo;
+//import android.os.Bundle;
+//import android.os.Handler;
+//import android.os.IBinder;
+//import android.os.Message;
+//import android.os.PowerManager;
+//import android.os.PowerManager.WakeLock;
+//import com.jsp.updaterk312.RKUpdateService.LocalBinder;
 //import android.rockchip.update.util.FTPRequestInfo;
-import android.util.Log;
-import android.view.KeyEvent;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.ProgressBar;
-import android.widget.RemoteViews;
-import android.widget.TextView;
-import android.widget.Toast;
-import java.net.URI;
-import java.net.URISyntaxException;
-import org.apache.http.client.HttpClient;
+//import android.util.Log;
+//import android.view.KeyEvent;
+//import android.view.View;
+//import android.view.View.OnClickListener;
+//import android.widget.Button;
+//import android.widget.ProgressBar;
+//import android.widget.RemoteViews;
+//import android.widget.TextView;
+//import android.widget.Toast;
+//import java.net.URI;
+//import java.net.URISyntaxException;
+//import org.apache.http.client.HttpClient;
 
 public class PackageDownloadActivity extends Activity {
 //    private static WakeLock mWakeLock;
@@ -421,5 +421,6 @@ public class PackageDownloadActivity extends Activity {
 //        } catch (Exception e) {
 //            Log.e(this.TAG, "parseFtpUri error....!");
 //        }
+//        return null;
 //    }
 }

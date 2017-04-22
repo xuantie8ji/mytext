@@ -1,6 +1,25 @@
 package com.jsp.updaterk312;
 
-
+//import android.os.Bundle;
+//import android.os.Handler;
+//import android.os.Message;
+//import android.rockchip.update.util.FileInfo;
+//import android.rockchip.update.util.FileInfo.Piece;
+//import android.rockchip.update.util.RegetInfoUtil;
+//import android.util.Log;
+//import java.io.File;
+//import java.io.IOException;
+//import java.io.InputStream;
+//import java.io.RandomAccessFile;
+//import java.net.URI;
+//import java.util.concurrent.ExecutorService;
+//import java.util.concurrent.Executors;
+//import java.util.concurrent.TimeUnit;
+//import org.apache.http.Header;
+//import org.apache.http.HttpResponse;
+//import org.apache.http.client.ClientProtocolException;
+//import org.apache.http.client.HttpClient;
+//import org.apache.http.client.methods.HttpGet;
 
 public class HTTPFileDownloadTask extends Thread {
 //    private String TAG;

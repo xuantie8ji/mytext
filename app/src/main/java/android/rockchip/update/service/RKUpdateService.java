@@ -3,7 +3,7 @@ package android.rockchip.update.service;
 
 public class RKUpdateService {
 
-    static {
+    public static void loadLibary() {
         System.loadLibrary("rockchip_update_jni");
 
     }

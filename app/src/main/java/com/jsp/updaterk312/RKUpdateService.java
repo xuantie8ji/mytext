@@ -269,6 +269,7 @@ public class RKUpdateService extends Service {
 
     static {
 //        System.loadLibrary("rockchip_update_jni");
+        android.rockchip.update.service.RKUpdateService.loadLibary();
         OTA_PACKAGE_FILE = "update.zip";
         RKIMAGE_FILE = "update.img";
         mWorkHandleLocked = false;

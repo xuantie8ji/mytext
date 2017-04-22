@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
-import android.widget.ImageView;
+
 import android.widget.TextView;
 
 public class Setting extends Activity {
@@ -26,14 +26,14 @@ public class Setting extends Activity {
         public void onClick(View v) {
             Intent serviceIntent = new Intent("android.rockchip.update.service");
             serviceIntent.setPackage("com.jsp.updaterk312");
-            serviceIntent.putExtra("command", 1);
+            serviceIntent.putExtra("command", 3);
             Setting.this.mContext.startService(serviceIntent);
         }
     }
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        requestWindowFeature(1);
+       requestWindowFeature(1);
         setContentView(R.layout.setting);
         this.mContext = this;
         this.mBtn_CheckNow = (ImageButton) findViewById(R.id.btn_check_now);

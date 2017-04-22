@@ -41,28 +41,28 @@ public class RecoverySystem {
         LOG_FILE_MAX_LENGTH = 65536;
     }
 
-//    private static HashSet<X509Certificate> getTrustedCerts(File keystore) throws IOException, GeneralSecurityException {
-//        InputStream is;
-//        HashSet<X509Certificate> trusted = new HashSet();
-//        if (keystore == null) {
-//            keystore = DEFAULT_KEYSTORE;
-//        }
-//        ZipFile zip = new ZipFile(keystore);
-//        try {
-//            CertificateFactory cf = CertificateFactory.getInstance("X.509");
-//            Enumeration<? extends ZipEntry> entries = zip.entries();
-//            while (entries.hasMoreElements()) {
-//                is = zip.getInputStream((ZipEntry) entries.nextElement());
-//                trusted.add((X509Certificate) cf.generateCertificate(is));
-//                is.close();
-//            }
-//            zip.close();
-//            return trusted;
-//        } catch (Throwable th) {
-//            zip.close();
-//        }
-//
-//    }
+    private static HashSet<X509Certificate> getTrustedCerts(File keystore) throws IOException, GeneralSecurityException {
+        InputStream is;
+        HashSet<X509Certificate> trusted = new HashSet();
+        if (keystore == null) {
+            keystore = DEFAULT_KEYSTORE;
+        }
+        ZipFile zip = new ZipFile(keystore);
+        try {
+            CertificateFactory cf = CertificateFactory.getInstance("X.509");
+            Enumeration<? extends ZipEntry> entries = zip.entries();
+            while (entries.hasMoreElements()) {
+                is = zip.getInputStream((ZipEntry) entries.nextElement());
+                trusted.add((X509Certificate) cf.generateCertificate(is));
+                is.close();
+            }
+            zip.close();
+            return trusted;
+        } catch (Throwable th) {
+            zip.close();
+        }
+return null;
+    }
 
     /* JADX WARNING: inconsistent code. */
     /* Code decompiled incorrectly, please refer to instructions dump. */

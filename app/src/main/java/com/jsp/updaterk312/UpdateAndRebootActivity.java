@@ -19,6 +19,7 @@ import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import com.jsp.updaterk312.RKUpdateService.LocalBinder;
 import android.util.Log;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;

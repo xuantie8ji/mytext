@@ -12,7 +12,7 @@ import android.os.HandlerThread;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
-
+import android.os.SystemProperties;
 import android.util.Log;
 import android.widget.Toast;
 import java.io.File;
@@ -446,7 +446,7 @@ public class RKUpdateService extends Service {
 
     private String getOtaPackageFileName() {
 //        String str = SystemPropertiesProxy.get(this,"ro.ota.packagename");
-        String str =SystemPropertiesProxy.get(this,"ro.ota.packagename");
+        String str =SystemProperties.get("ro.ota.packagename");
         if (str == null || str.length() == 0) {
             return null;
         }
@@ -457,8 +457,8 @@ public class RKUpdateService extends Service {
     }
 
     private String getRKimageFileName() {
-//        String str = SystemPropertiesProxy.get(this,"ro.rkimage.name");
-        String str =SystemPropertiesProxy.get(this,"ro.rkimage.name");
+        String str = SystemProperties.get("ro.rkimage.name");
+//        String str =SystemPropertiesProxy.get(this,"ro.rkimage.name");
         if (str == null || str.length() == 0) {
             return null;
         }
@@ -469,12 +469,13 @@ public class RKUpdateService extends Service {
     }
 
     private String getCurrentFirmwareVersion() {
-        return SystemPropertiesProxy.get(this,"ro.firmware.version");
 //        return SystemPropertiesProxy.get(this,"ro.firmware.version");
+        return SystemProperties.get("ro.firmware.version");
     }
 
     private static String getProductName() {
-        return SystemPropertiesProxy.get(context,"ro.product.model");
+//        return SystemPropertiesProxy.get(context,"ro.product.model");
+        return SystemProperties.get("ro.product.model");
     }
 
     private void makeToast(CharSequence msg) {
@@ -490,7 +491,8 @@ public class RKUpdateService extends Service {
     }
 
     public static String getRemoteHost() {
-        String remoteHost = SystemPropertiesProxy.get(context,"ro.product.ota.host");
+//        String remoteHost = SystemPropertiesProxy.get(context,"ro.product.ota.host");
+        String remoteHost = SystemProperties.get("ro.product.ota.host");
         if (remoteHost == null || remoteHost.length() == 0) {
             return "192.168.1.143:2300";
         }
@@ -498,15 +500,18 @@ public class RKUpdateService extends Service {
     }
 
     public static String getRemoteHostBackup() {
-        String remoteHost = SystemPropertiesProxy.get(context,"ro.product.ota.host2");
+//        String remoteHost = SystemPropertiesProxy.get(context,"ro.product.ota.host2");
+        String remoteHost = SystemProperties.get("ro.product.ota.host2");
         if (remoteHost == null || remoteHost.length() == 0) {
+
             return "192.168.1.143:2300";
         }
         return remoteHost;
     }
 
     public static String getOtaProductName() {
-        String productName = SystemPropertiesProxy.get(context,"ro.product.model");
+//        String productName = SystemPropertiesProxy.get(context,"ro.product.model");
+        String productName = SystemProperties.get("ro.product.model");
         if (productName.contains(" ")) {
             return productName.replaceAll(" ", "");
         }
@@ -514,9 +519,11 @@ public class RKUpdateService extends Service {
     }
 
     public static boolean getMultiUserState() {
-        String multiUser = SystemPropertiesProxy.get(context,"ro.factory.hasUMS");
+//        String multiUser = SystemPropertiesProxy.get(context,"ro.factory.hasUMS");
+        String multiUser = SystemProperties.get("ro.factory.hasUMS");
         if (multiUser == null || multiUser.length() <= 0) {
-            multiUser = SystemPropertiesProxy.get(context,"ro.factory.storage_policy");
+//            multiUser = SystemPropertiesProxy.get(context,"ro.factory.storage_policy");
+            multiUser = SystemProperties.get("ro.factory.storage_policy");
             if (multiUser == null || multiUser.length() <= 0) {
                 return false;
             }
@@ -604,7 +611,8 @@ public class RKUpdateService extends Service {
     }
 
     public static String getSystemVersion() {
-        String version = SystemPropertiesProxy.get(context,"ro.product.version");
+//        String version = SystemPropertiesProxy.get(context,"ro.product.version");
+        String version = SystemProperties.get("ro.product.version");
         if (version == null || version.length() == 0) {
             return "1.0.0";
         }
@@ -612,7 +620,8 @@ public class RKUpdateService extends Service {
     }
 
     public static String getProductSN() {
-        String sn = SystemPropertiesProxy.get(context,"ro.serialno");
+//        String sn = SystemPropertiesProxy.get(context,"ro.serialno");
+        String sn = SystemProperties.get("ro.serialno");
         if (sn == null || sn.length() == 0) {
             return "unknown";
         }

@@ -464,7 +464,8 @@ return null;
 
     public static void installRKimage(Context context, String imagePath) throws IOException {
         Log.w("RecoverySystem", "!!! REBOOTING TO INSTALL rkimage " + imagePath + " !!!");
-        String arg = "--update_rkimage=" + imagePath + "\n--locale=" + Locale.getDefault().toString();
+//        String arg = "--update_rkimage=" + imagePath + "\n--locale=" + Locale.getDefault().toString();
+        String arg = "--update_rkimage=" + imagePath;
         writeFlagCommand(imagePath);
         bootCommand(context, arg);
     }
@@ -498,16 +499,22 @@ return null;
         RECOVERY_DIR.mkdirs();
         UPDATE_FLAG_FILE.delete();
         FileWriter writer = new FileWriter(UPDATE_FLAG_FILE);
-        try {
-            Log.e("RecoverySystem","startToWrite");
+//        try {
+            Log.e("RecoverySystem","startToWritepath========"+path);
+            if (UPDATE_FLAG_FILE.exists())
+            {
+
+
+                Log.e("RecoverySystem"+"UPDATE_FLAG_FILE=======",UPDATE_FLAG_FILE.getAbsolutePath().toString());
+            }
             writer.write("updating$path=" + path);
             if (!UPDATE_FLAG_FILE.setReadable(true, false)
                     || !UPDATE_FLAG_FILE.setWritable(true, false)) {
                 Log.e("RecoverySystem", "Error setting permission for " + UPDATE_FLAG_FILE);
             }
-        } finally {
+//        } finally {
             writer.close();
-        }
+//        }
     }
 
     private static void bootCommand(Context context, String arg) throws IOException {
@@ -515,18 +522,26 @@ return null;
         COMMAND_FILE.delete();
         LOG_FILE.delete();
         FileWriter command = new FileWriter(COMMAND_FILE);
-        try {
+//        try {
+            Log.e("RecoverySystem"+"startToWrite+++arg=======",arg);
+            if (COMMAND_FILE.exists())
+            {
+
+
+                Log.e("RecoverySystem"+"COMMAND_FILE=======",COMMAND_FILE.getAbsolutePath().toString());
+            }
             command.write(arg);
-            command.write("\n");
+//            command.write("\n");
             if (!COMMAND_FILE.setReadable(true, false)
                     || !COMMAND_FILE.setWritable(true, false)) {
                 Log.e("RecoverySystem", "Error setting permission for " + COMMAND_FILE);
             }
-            ((PowerManager) context.getSystemService("power")).reboot("recovery");
-            throw new IOException("Reboot failed (no permissions?)");
-        } finally {
+
+//        } finally {
             command.flush();
             command.close();
-        }
+//        }
+        ((PowerManager) context.getSystemService("power")).reboot("recovery");
+        throw new IOException("Reboot failed (no permissions?)");
     }
 }

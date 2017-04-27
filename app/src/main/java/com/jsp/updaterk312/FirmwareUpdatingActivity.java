@@ -49,7 +49,7 @@ public class FirmwareUpdatingActivity extends Activity {
         public void onClick(View v) {
             Intent intent = new Intent(FirmwareUpdatingActivity.this.mContext, UpdateAndRebootActivity.class);
             //Intent.FLAG_RECEIVER_FOREGROUND=268435456
-            intent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
+            intent.addFlags(268435456);
             intent.putExtra("android.rockchip.update.extra.IMAGE_PATH", FirmwareUpdatingActivity.this.mImageFilePath);
             FirmwareUpdatingActivity.this.startActivity(intent);
             FirmwareUpdatingActivity.this.finish();

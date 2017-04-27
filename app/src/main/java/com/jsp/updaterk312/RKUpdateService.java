@@ -13,6 +13,7 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
 import android.os.SystemProperties;
+import android.rockchip.update.service.RecoverySystem;
 import android.util.Log;
 import android.widget.Toast;
 import java.io.File;
@@ -275,8 +276,9 @@ public class RKUpdateService extends Service {
         mWorkHandleLocked = false;
         mIsNeedDeletePackage = false;
         DATA_ROOT = "/data/media/0";
+//        FLASH_ROOT = Environment.getExternalStorageDirectory().getAbsolutePath();
         FLASH_ROOT = Environment.getExternalStorageDirectory().getAbsolutePath();
-        SDCARD_ROOT = "/mnt/external_sd";
+        SDCARD_ROOT = "/mnt/internal_sd";
         USB_ROOT = "/mnt/usb_storage";
         CACHE_ROOT = Environment.getDownloadCacheDirectory().getAbsolutePath();
         IMAGE_FILE_DIRS = new String[]{DATA_ROOT + "/", FLASH_ROOT + "/", SDCARD_ROOT + "/", USB_ROOT + "/"};
@@ -427,8 +429,8 @@ public class RKUpdateService extends Service {
     private void startProposingActivity(String path, String imageVersion, String currentVersion) {
         Intent intent = new Intent();
         intent.setComponent(new ComponentName("com.jsp.updaterk312", "com.jsp.updaterk312.FirmwareUpdatingActivity"));
-
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+       // Intent.FLAG_ACTIVITY_NEW_TASK= 268435456
+        intent.addFlags(268435456);
         intent.putExtra("android.rockchip.update.extra.IMAGE_PATH", path);
         intent.putExtra("android.rockchip.update.extra.IMAGE_VERSION", imageVersion);
         intent.putExtra("android.rockchip.update.extra.CURRENT_VERSION", currentVersion);

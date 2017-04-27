@@ -1,4 +1,4 @@
-package com.jsp.updaterk312;
+package android.rockchip.update.service;
 
 import android.content.Context;
 import android.os.PowerManager;
@@ -66,7 +66,7 @@ return null;
 
     /* JADX WARNING: inconsistent code. */
     /* Code decompiled incorrectly, please refer to instructions dump. */
-    public static void verifyPackage(File r50, com.jsp.updaterk312.RecoverySystem.ProgressListener r51, File r52) throws IOException, GeneralSecurityException {
+    public static void verifyPackage(File r50, RecoverySystem.ProgressListener r51, File r52) throws IOException, GeneralSecurityException {
         /*
         r16 = r50.length();
         r30 = new java.io.RandomAccessFile;
@@ -501,6 +501,10 @@ return null;
         try {
             Log.e("RecoverySystem","startToWrite");
             writer.write("updating$path=" + path);
+            if (!UPDATE_FLAG_FILE.setReadable(true, false)
+                    || !UPDATE_FLAG_FILE.setWritable(true, false)) {
+                Log.e("RecoverySystem", "Error setting permission for " + UPDATE_FLAG_FILE);
+            }
         } finally {
             writer.close();
         }
@@ -514,6 +518,10 @@ return null;
         try {
             command.write(arg);
             command.write("\n");
+            if (!COMMAND_FILE.setReadable(true, false)
+                    || !COMMAND_FILE.setWritable(true, false)) {
+                Log.e("RecoverySystem", "Error setting permission for " + COMMAND_FILE);
+            }
             ((PowerManager) context.getSystemService("power")).reboot("recovery");
             throw new IOException("Reboot failed (no permissions?)");
         } finally {

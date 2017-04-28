@@ -500,18 +500,18 @@ return null;
         UPDATE_FLAG_FILE.delete();
         FileWriter writer = new FileWriter(UPDATE_FLAG_FILE);
 //        try {
-            Log.e("RecoverySystem","startToWritepath========"+path);
-            if (UPDATE_FLAG_FILE.exists())
-            {
-
-
-                Log.e("RecoverySystem"+"UPDATE_FLAG_FILE=======",UPDATE_FLAG_FILE.getAbsolutePath().toString());
-            }
+//            Log.e("RecoverySystem","startToWritepath========"+path);
+//            if (UPDATE_FLAG_FILE.exists())
+//            {
+//
+//
+//                Log.e("RecoverySystem"+"UPDATE_FLAG_FILE=======",UPDATE_FLAG_FILE.getAbsolutePath().toString());
+//            }
             writer.write("updating$path=" + path);
-            if (!UPDATE_FLAG_FILE.setReadable(true, false)
-                    || !UPDATE_FLAG_FILE.setWritable(true, false)) {
-                Log.e("RecoverySystem", "Error setting permission for " + UPDATE_FLAG_FILE);
-            }
+//            if (!UPDATE_FLAG_FILE.setReadable(true, false)
+//                    || !UPDATE_FLAG_FILE.setWritable(true, false)) {
+//                Log.e("RecoverySystem", "Error setting permission for " + UPDATE_FLAG_FILE);
+//            }
 //        } finally {
             writer.close();
 //        }
@@ -523,19 +523,19 @@ return null;
         LOG_FILE.delete();
         FileWriter command = new FileWriter(COMMAND_FILE);
 //        try {
-            Log.e("RecoverySystem"+"startToWrite+++arg=======",arg);
-            if (COMMAND_FILE.exists())
-            {
-
-
-                Log.e("RecoverySystem"+"COMMAND_FILE=======",COMMAND_FILE.getAbsolutePath().toString());
-            }
+//            Log.e("RecoverySystem"+"startToWrite+++arg=======",arg);
+//            if (COMMAND_FILE.exists())
+//            {
+//
+//
+//                Log.e("RecoverySystem"+"COMMAND_FILE=======",COMMAND_FILE.getAbsolutePath().toString());
+//            }
             command.write(arg);
 //            command.write("\n");
-            if (!COMMAND_FILE.setReadable(true, false)
-                    || !COMMAND_FILE.setWritable(true, false)) {
-                Log.e("RecoverySystem", "Error setting permission for " + COMMAND_FILE);
-            }
+//            if (!COMMAND_FILE.setReadable(true, false)
+//                    || !COMMAND_FILE.setWritable(true, false)) {
+//                Log.e("RecoverySystem", "Error setting permission for " + COMMAND_FILE);
+//            }
 
 //        } finally {
             command.flush();

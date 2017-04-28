@@ -133,6 +133,16 @@ public class RKUpdateReceiver extends BroadcastReceiver {
             context.startService(serviceIntent);
             Log.d("RKUpdateReceiver", "media is mounted to '" + path[0] + "'. To check local update.");
         }
+        else if (action.equals("UserRKUpdateService_Brocast")) {
+            Log.d("RKUpdateReceiver", "RKUpdateReceiver recv UserRKUpdateService_Brocast.");
+
+boolean flag=intent.getBooleanExtra("verify",true);
+
+            serviceIntent = new Intent(context, RKUpdateService.class);
+            serviceIntent.putExtra("command", 1);
+            serviceIntent.putExtra("delay", 2000);
+            context.startService(serviceIntent);
+        }
 //        else if (action.equals("android.hardware.usb.action.USB_STATE") && isBootCompleted) {
 //            Bundle extras = intent.getExtras();
 //            boolean connected = extras.getBoolean("connected");

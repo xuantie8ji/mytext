@@ -43,6 +43,9 @@
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="UserRKUpdateService_Brocast" />
+            </intent-filter>
         </receiver>
         <service android:name=".RKUpdateService">
             <intent-filter>
@@ -95,7 +98,6 @@
             android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

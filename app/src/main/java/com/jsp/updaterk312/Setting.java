@@ -26,7 +26,7 @@ public class Setting extends Activity {
         public void onClick(View v) {
             Intent serviceIntent = new Intent("android.rockchip.update.service");
             serviceIntent.setPackage("com.jsp.updaterk312");
-            serviceIntent.putExtra("command", 3);
+            serviceIntent.putExtra("command", 1);
             Setting.this.mContext.startService(serviceIntent);
         }
     }

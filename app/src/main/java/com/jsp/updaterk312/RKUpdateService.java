@@ -93,9 +93,6 @@ public class RKUpdateService extends Service {
         }
     }
 
-
-    //---------------------------------------
-
     public class LocalBinder extends Binder {
         public void updateFirmware(String imagePath, int mode) {
             RKUpdateService.LOG("updateFirmware(): imagePath = " + imagePath);
@@ -146,12 +143,6 @@ public class RKUpdateService extends Service {
             RKUpdateService.LOG("LockWorkHandler...!");
         }
     }
-
-
-    //---------------------------------------
-
-
-
 
     private class WorkHandler extends Handler {
         public WorkHandler(Looper looper) {
@@ -308,14 +299,14 @@ public class RKUpdateService extends Service {
             RKIMAGE_FILE = rk_imagename;
             LOG("get rkimage name private is " + RKIMAGE_FILE);
         }
-        try {
-            mRemoteURI = new URI(getRemoteUri());
-            mRemoteURIBackup = new URI(getRemoteUriBackup());
-            LOG("remote uri is " + mRemoteURI.toString());
-            LOG("remote uri backup is " + mRemoteURIBackup.toString());
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            mRemoteURI = new URI(getRemoteUri());
+//            mRemoteURIBackup = new URI(getRemoteUriBackup());
+//            LOG("remote uri is " + mRemoteURI.toString());
+//            LOG("remote uri backup is " + mRemoteURIBackup.toString());
+//        } catch (URISyntaxException e) {
+//            e.printStackTrace();
+//        }
         this.mAutoCheckSet = getSharedPreferences("auto_check", 0);
         this.mMainHandler = new Handler(Looper.getMainLooper());
         HandlerThread workThread = new HandlerThread("UpdateService : work thread");

@@ -58,7 +58,7 @@ public class RKUpdateService extends Service {
     private WorkHandler mWorkHandler;
     private static Context context;
 
-
+    private boolean flag=true; //update dialog verify
 
     public static Context getAppContext() {
         return RKUpdateService.context;
@@ -361,6 +361,7 @@ public class RKUpdateService extends Service {
         }
         int command = intent.getIntExtra("command", 0);
         int delayTime = intent.getIntExtra("delay", 1000);
+        flag = intent.getBooleanExtra("verify", true);
         LOG("command = " + command + " delaytime = " + delayTime);
         if (command == 0) {
             return 2;
@@ -385,6 +386,7 @@ public class RKUpdateService extends Service {
         Message msg = new Message();
         msg.what = command;
         msg.arg1 = 0;
+
         this.mWorkHandler.sendMessageDelayed(msg, (long) delayTime);
         return 3;
     }
@@ -425,6 +427,9 @@ public class RKUpdateService extends Service {
         intent.putExtra("android.rockchip.update.extra.IMAGE_PATH", path);
         intent.putExtra("android.rockchip.update.extra.IMAGE_VERSION", imageVersion);
         intent.putExtra("android.rockchip.update.extra.CURRENT_VERSION", currentVersion);
+
+        intent.putExtra("verify", flag);
+
         this.mContext.startActivity(intent);
     }
 

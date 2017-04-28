@@ -23,6 +23,8 @@ public class FirmwareUpdatingActivity extends Activity {
     private String mImageVersion;
     private BroadcastReceiver mReceiver;
 
+    private boolean flag=true; //update dialog verify
+
     /* renamed from: android.rockchip.update.service.FirmwareUpdatingActivity.1 */
     class C00001 extends BroadcastReceiver {
         C00001() {
@@ -92,17 +94,42 @@ public class FirmwareUpdatingActivity extends Activity {
         this.mImageFilePath = extr.getString("android.rockchip.update.extra.IMAGE_PATH");
         this.mImageVersion = extr.getString("android.rockchip.update.extra.IMAGE_VERSION");
         this.mCurrentVersion = extr.getString("android.rockchip.update.extra.CURRENT_VERSION");
+
+
+        this.flag = extr.getBoolean("verify");
+
+        if (!flag){
+            Intent intent = new Intent(FirmwareUpdatingActivity.this.mContext, UpdateAndRebootActivity.class);
+            //Intent.FLAG_RECEIVER_FOREGROUND=268435456
+            intent.addFlags(268435456);
+            intent.putExtra("android.rockchip.update.extra.IMAGE_PATH", FirmwareUpdatingActivity.this.mImageFilePath);
+            FirmwareUpdatingActivity.this.startActivity(intent);
+            FirmwareUpdatingActivity.this.finish();
+        }else{
+            String messageFormat = getString(R.string.updating_message_formate);
+            sFormatBuilder.setLength(0);
+            sFormatter.format(messageFormat, new Object[]{this.mImageFilePath});
+            ((TextView) findViewById(R.id.notify)).setText(sFormatBuilder.toString());
+            Button btn_ok = (Button) findViewById(R.id.button_ok);
+            Button btn_cancel = (Button) findViewById(R.id.button_cancel);
+            btn_ok.setText(getString(R.string.updating_button_install));
+            btn_cancel.setText(getString(R.string.updating_button_cancel));
+            btn_ok.setOnClickListener(new C00012());
+            btn_cancel.setOnClickListener(new C00023());
+
+        }
+
 //        LOG("FirmwareUpdatingActivity"+this.mImageFilePath+"======"+this.mImageVersion+"======"+this.mCurrentVersion);
-        String messageFormat = getString(R.string.updating_message_formate);
-        sFormatBuilder.setLength(0);
-        sFormatter.format(messageFormat, new Object[]{this.mImageFilePath});
-        ((TextView) findViewById(R.id.notify)).setText(sFormatBuilder.toString());
-        Button btn_ok = (Button) findViewById(R.id.button_ok);
-        Button btn_cancel = (Button) findViewById(R.id.button_cancel);
-        btn_ok.setText(getString(R.string.updating_button_install));
-        btn_cancel.setText(getString(R.string.updating_button_cancel));
-        btn_ok.setOnClickListener(new C00012());
-        btn_cancel.setOnClickListener(new C00023());
+//        String messageFormat = getString(R.string.updating_message_formate);
+//        sFormatBuilder.setLength(0);
+//        sFormatter.format(messageFormat, new Object[]{this.mImageFilePath});
+//        ((TextView) findViewById(R.id.notify)).setText(sFormatBuilder.toString());
+//        Button btn_ok = (Button) findViewById(R.id.button_ok);
+//        Button btn_cancel = (Button) findViewById(R.id.button_cancel);
+//        btn_ok.setText(getString(R.string.updating_button_install));
+//        btn_cancel.setText(getString(R.string.updating_button_cancel));
+//        btn_ok.setOnClickListener(new C00012());
+//        btn_cancel.setOnClickListener(new C00023());
         IntentFilter filter = new IntentFilter();
         filter.addAction("android.intent.action.MEDIA_UNMOUNTED");
         filter.addDataScheme("file");

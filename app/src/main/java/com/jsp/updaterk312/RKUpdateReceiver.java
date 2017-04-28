@@ -141,6 +141,7 @@ boolean flag=intent.getBooleanExtra("verify",true);
             serviceIntent = new Intent(context, RKUpdateService.class);
             serviceIntent.putExtra("command", 1);
             serviceIntent.putExtra("delay", 2000);
+            serviceIntent.putExtra("verify", flag);
             context.startService(serviceIntent);
         }
 //        else if (action.equals("android.hardware.usb.action.USB_STATE") && isBootCompleted) {
